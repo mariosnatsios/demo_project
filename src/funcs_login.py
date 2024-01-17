@@ -115,8 +115,21 @@ def check_nvg_from_login_to_remind_username():
     assert current_url=="https://ebepirus.natech.gr/en/Account/ForgotUsername",  "NOT THE CORRECT LANDING PAGE!!"
 
     
-
-    
+def check_nvg_from_remind_username_to_login():
+    """
+        Checks navigation from forgot username page to login page
+    """ 
+    page = CONF.navigate_to.forgot_username_page()
+    # Click the 'Return to login page' link
+    page.click_a_return_to_login_page()
+    # Validate page redirection
+    page.validate_h5_remind_username(exists=False)
+    from pages.login_page import LoginPage
+    login_page = LoginPage()
+    login_page.validate_p_login_btn()
+    current_url = CONF.driver.current_url
+    assert current_url == "https://ebepirus.natech.gr/en/Account/UserLogin", "NOT THE CORRECT LANDING PAGE!!"
+     
     
 
     

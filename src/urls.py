@@ -19,3 +19,17 @@ class Navigate():
         # Return page object
         return LoginPage()
     
+    def forgot_username_page(self):
+        """
+            url:https://ebepirus.natech.gr/en/Account/ForgotUsername
+        """
+        from pages.forgot_username_page import ForgotUsername
+        
+        url = "https://ebepirus.natech.gr/en/Account/ForgotUsername"
+        self.wd = conf.CONF.driver
+        # Navigate to page
+        self.wd.get(url)
+        # Return page object
+        return ForgotUsername()
+    
+    

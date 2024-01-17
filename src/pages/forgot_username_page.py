@@ -10,3 +10,12 @@ class ForgotUsername(actions.Actions):
         path = "//form//h5[contains(., 'Remind Username')]"
         self.existence(path, exists=exists)
         
+    # --------------------- CLICK -----------------------
+    def click_a_return_to_login_page(self):
+        """
+            Clicks the 'Return to login page' link 
+        """
+        path = "//form//a[contains(@class,'link-muted')]"
+        self.find_and_click(path)
+
+        
