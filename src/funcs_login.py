@@ -1,6 +1,3 @@
-import fixtures
-import time
-import json
 from conf import CONF
 from data.login_data import valid_credentials
 
@@ -10,7 +7,7 @@ def login(username, password):
     """
         Navigates to login page and enter credentials in order to login.
     """
-    page = fixtures.navigate_to.login_page()
+    page = CONF.navigate_to.login_page()
     
     page.set_input_username(username)
     page.set_input_password(password)
@@ -99,6 +96,25 @@ def check_cancel_logout():
     login_page.validate_p_login_btn(exists=False)
     current_url = CONF.driver.current_url
     assert current_url == "https://ebepirus.natech.gr/en/Home/Index#" + "!", "NOT THE CORRECT LANDING PAGE!!"
+    
+    
+def check_nvg_from_login_to_remind_username():
+    """
+        Checks navigation from login paage to forgot username page
+    """
+    page_login = CONF.navigate_to.login_page()
+    # Click the 'Forgot Username' link
+    page_login.clicks_a_forgot_username()
+    # Validate page redirection
+    from pages.forgot_username_page import ForgotUsername
+    new_page = ForgotUsername()
+    # Validate header existence in Remind Username form
+    new_page.validate_h5_remind_username()
+    # Check current url
+    current_url = CONF.driver.current_url
+    assert current_url=="https://ebepirus.natech.gr/en/Account/ForgotUsername",  "NOT THE CORRECT LANDING PAGE!!"
+
+    
 
     
     

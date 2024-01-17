@@ -25,6 +25,34 @@ class LoginPage(actions.Actions):
         path = "//form[@id='LoginForm']"
         return path
     
+    def path_a_forgot_username(self):
+        """
+            Returns path of 'Forgot username?' link of the login form
+        """
+        path = "//form//div[contains(@class, 'loginField')]/a[contains(@href,'ForgotUsername')]"
+        return path
+    
+    def path_a_forgot_password(self):
+        """
+            Returns path of 'Forgot your password?' link of the login form
+        """
+        path = "//form//div[contains(@class, 'loginField')]/a[contains(@href,'ForgotPassword')]"
+        return path
+    
+    def path_a_block_acount(self):
+        """
+            Returns path of 'Block account' link of the login form
+        """
+        path = "//form//div[contains(@class, 'loginField')]/a[contains(@href,'BlockMyAccount')]"
+        return path
+    
+    def path_a_unblock_acount(self):
+        """
+            Returns path of 'Unblock account' link of the login form
+        """
+        path = "//form//div[contains(@class, 'loginField')]/a[contains(@href,'ReactivatePassword')]"
+        return path
+    
     # ------------------ CLICK ------------------------
     def click_button_login(self):
         """
@@ -33,6 +61,34 @@ class LoginPage(actions.Actions):
         path = "//button[contains(@class,'login')]"
         self.find_and_click(path)
         
+    def clicks_a_forgot_username(self):
+        """
+            Clicks the 'Forgot username?' link of the login form
+        """
+        path = self.path_a_forgot_username()
+        self.find_and_click(path)
+        
+    def clicks_a_forgot_password(self):
+        """
+            Clicks the 'Forgot your password?' link of the login form
+        """
+        path = self.path_a_forgot_password()
+        self.find_and_click(path)
+        
+    def clicks_a_clock_account(self):
+        """
+            Clicks the 'Block account' link of the login form
+        """
+        path = self.path_a_block_acount()
+        self.find_and_click(path)
+    
+    def clicks_a_clock_account(self):
+        """
+            Clicks the 'Unblock account' link of the login form
+        """
+        path = self.path_a_unblock_acount()
+        self.find_and_click(path)
+    
     # ------------------ VALIDATE ------------------------
     def validate_p_login_btn(self, exists=True):
         """
