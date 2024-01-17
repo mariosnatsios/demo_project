@@ -1,5 +1,10 @@
 from conf import CONF
+from time import sleep
 from data.login_data import valid_credentials
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import TimeoutException
+from selenium.webdriver.common.by import By
 
 
 
@@ -97,6 +102,29 @@ def check_cancel_logout():
     current_url = CONF.driver.current_url
     assert current_url == "https://ebepirus.natech.gr/en/Home/Index#" + "!", "NOT THE CORRECT LANDING PAGE!!"
     
+
+def check_auto_logout_after_max_connection_time(max_time=600):
+    """
+        Checks tha an auto-logout occurs after 10 mins(600 secs). After the time period validates the redirection to
+        login page.
+    """
+    success = True
+    error_msg = "UNSUCCESSFUL AUTO-LOGOUT AFTER TIME LIMIT!!!"
+    # Login
+    home_page = perform_valid_login()
+    # Validate that the homepage is loaded first
+    home_page.validate_a_side_panel_nav_option("Home")
+    # Wait for 600ssecs and validate the login page redirection
+    from pages.login_page import LoginPage
+    page = LoginPage()
+    try:
+        WebDriverWait(CONF.driver, max_time).until(EC.presence_of_all_elements_located((By.XPATH, page.path_form_login_form())))
+        print("AUTO-LOGOUT COMPLETD AFTER TIME LIMIT")
+    except TimeoutException: 
+        success = False
+    finally:
+         assert success == True, error_msg
+                
     
 def check_nvg_from_login_to_remind_username():
     """

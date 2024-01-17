@@ -5,7 +5,7 @@ class HomePage(actions.Actions):
     # ----------------------- HELPERS -----------------------
  
     
-    # ----------------------- CLICK ------------------------
+    # ----------------------- VALIDATE ------------------------
     def validate_a_side_panel_nav_option(self, option):
         """
             Validate an option in the navigation panel
