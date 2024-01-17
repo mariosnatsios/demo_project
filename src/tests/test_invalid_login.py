@@ -1,8 +1,6 @@
-import sys
-import fixtures
-import funcs_login
+from src import fixtures
+from src.funcs_login import check_invalid_login
 import time
-
 
 
 class Test_Invalid_Login(fixtures.Fixtures):
@@ -20,7 +18,7 @@ class Test_Invalid_Login(fixtures.Fixtures):
             Click on the login button.
             Verify that an appropriate error message is displayed.
         """
-        funcs_login.check_invalid_login(wrong_password=self.WRONG_PASS)
+        check_invalid_login(wrong_password=self.WRONG_PASS)
         
     def test_2_incorrect_username(self):
         """
@@ -30,12 +28,12 @@ class Test_Invalid_Login(fixtures.Fixtures):
             Click on the login button.
             Verify that an appropriate error message is displayed.
         """
-        funcs_login.check_invalid_login(wrong_username=self.WRONG_USERNAME)
+        check_invalid_login(wrong_username=self.WRONG_USERNAME)
     
     def test_3_empty_field(self):
         """
              Submit the login form with empty username and password fields.
              Verify appropriate error messages for both fields.
         """
-        funcs_login.check_invalid_login()
+        check_invalid_login()
 

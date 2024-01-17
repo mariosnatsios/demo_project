@@ -1,7 +1,5 @@
-import sys
-sys.path.append('.')
-import fixtures
-import funcs_login
+from src import fixtures
+from src.funcs_login import check_cancel_logout
 
 class Test_Check_Cancel_Logout(fixtures.Fixtures):
     """
@@ -12,4 +10,4 @@ class Test_Check_Cancel_Logout(fixtures.Fixtures):
              Perform valid login then hit the logout button and then the Return button to cancel.
              validate thet no redirection to the initial login page has occurred.
         """
-        funcs_login.check_cancel_logout()
+        check_cancel_logout()

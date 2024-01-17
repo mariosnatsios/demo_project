@@ -1,7 +1,5 @@
-import sys
-sys.path.append('.')
-import fixtures
-import funcs_login
+from src import fixtures
+from src.funcs_login import perform_valid_login
 
 
 class Test_Valid_Login(fixtures.Fixtures):
@@ -12,10 +10,10 @@ class Test_Valid_Login(fixtures.Fixtures):
         """
             Valid login with lowercase username
         """
-        funcs_login.perform_valid_login()
+        perform_valid_login()
         
     def test_2_uppercase_username(self):
         """
-            Valid login with lowercase username
+            Valid login with uppercase username
         """
-        funcs_login.perform_valid_login(upper_username=True)
+        perform_valid_login(upper_username=True)

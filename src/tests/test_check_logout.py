@@ -1,7 +1,5 @@
-import sys
-sys.path.append('.')
-import fixtures
-import funcs_login
+from src import fixtures
+from src.funcs_login import check_logout
 
 class Test_Check_Logout(fixtures.Fixtures):
     """
@@ -11,4 +9,4 @@ class Test_Check_Logout(fixtures.Fixtures):
         """
              Perform valid login then hit the logout button and validate the redirection to the initial login page.
         """
-        funcs_login.check_logout()
+        check_logout()

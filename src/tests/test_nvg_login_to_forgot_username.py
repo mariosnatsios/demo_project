@@ -1,7 +1,5 @@
-import sys
-sys.path.append('.')
-import fixtures
-import funcs_login
+from src import  fixtures
+from src import funcs_login
 
 class Test_Check_NVG_Login_To_Remind_Username(fixtures.Fixtures):
     """
