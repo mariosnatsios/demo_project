@@ -1,5 +1,6 @@
 
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver import ChromeOptions
 
 class ConfigurationHelper():
@@ -11,10 +12,11 @@ class ConfigurationHelper():
         self.driver = wd
 
     def set_browser(self):
+        service = Service(executable_path='chromedriver.exe')
         chrome_options = ChromeOptions()
         chrome_options.add_argument("--start-maximized")
 
-        driver = webdriver.Chrome(options=chrome_options)
+        driver = webdriver.Chrome(service=service, options=chrome_options)
         
         return driver
     
