@@ -1,6 +1,6 @@
-import actions
+from src.actions import Actions
 
-class ForgotUsername(actions.Actions):
+class ForgotUsername(Actions):
     
     # --------------------- VALIDATE -----------------------
     def validate_h5_remind_username(self, exists=True):

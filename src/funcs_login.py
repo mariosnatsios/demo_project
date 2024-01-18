@@ -133,7 +133,7 @@ def check_nvg_from_login_to_remind_username():
     # Click the 'Forgot Username' link
     page_login.clicks_a_forgot_username()
     # Validate page redirection
-    from pages.forgot_username_page import ForgotUsername
+    from src.pages.forgot_username_page import ForgotUsername
     new_page = ForgotUsername()
     # Validate header existence in Remind Username form
     new_page.validate_h5_remind_username()
