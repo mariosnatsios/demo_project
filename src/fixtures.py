@@ -1,8 +1,6 @@
 import unittest
-import sys
-sys.path.append('.')
-from conf import CONF
-from urls import Navigate
+from src.conf import CONF
+from src.urls import Navigate
 
 
 class Fixtures(unittest.TestCase):

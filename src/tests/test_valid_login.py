@@ -1,3 +1,4 @@
+import unittest
 from src import fixtures
 from src.funcs_login import perform_valid_login
 
@@ -17,3 +18,6 @@ class Test_Valid_Login(fixtures.Fixtures):
             Valid login with uppercase username
         """
         perform_valid_login(upper_username=True)
+
+if __name__ == '__main__':
+    unittest.main()

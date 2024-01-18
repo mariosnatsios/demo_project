@@ -1,6 +1,6 @@
 import unittest
 import time
-import api_calls
+from src.api_calls import create_github_repo, get_github_repo, create_issue_in_repo, get_issue_of_repo, delete_github_repo, get_deleted_repo
 
 class TestApi(unittest.TestCase):
     
@@ -10,37 +10,37 @@ class TestApi(unittest.TestCase):
        """
         Create a new GitHub repository.
        """
-       api_calls.create_github_repo(self.REPO_NAME)
+       create_github_repo(self.REPO_NAME)
        
     def test_2_get_repo(self):
         """
             Gets the newly created GitHub repository.
         """
-        api_calls.get_github_repo(self.REPO_NAME)
+        get_github_repo(self.REPO_NAME)
         
     def test_3_create_issue_in_repo(self):
         """
             Creates an issue in the repo.
         """
-        api_calls.create_issue_in_repo(self.REPO_NAME)
+        create_issue_in_repo(self.REPO_NAME)
         
     def test_4_get_issue_in_repo(self):
         """
             Gets the newly created issue.
         """
-        api_calls.get_issue_of_repo(self.REPO_NAME)
+        get_issue_of_repo(self.REPO_NAME)
         
     def test_5_delete_repo(self):
         """
             Deletes the previously created repo.
         """
-        api_calls.delete_github_repo(self.REPO_NAME)
+        delete_github_repo(self.REPO_NAME)
         
     def test_6_get_deleted_repo(self):
         """
             Tries to fetch the deleted repo and validates its successfull deletion.
         """
-        api_calls.get_deleted_repo(self.REPO_NAME)
+        get_deleted_repo(self.REPO_NAME)
 
 
 if __name__ == '__main__':

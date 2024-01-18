@@ -1,4 +1,4 @@
-from conf import CONF
+from src.conf import CONF
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.common.exceptions import TimeoutException

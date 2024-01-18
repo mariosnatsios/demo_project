@@ -1,4 +1,4 @@
-import conf
+from src.conf import CONF
 
 class Navigate():
     """
@@ -10,10 +10,10 @@ class Navigate():
         """
             url: https://ebepirus.natech.gr/en/Account/UserLogin
         """
-        from pages.login_page import LoginPage
+        from src.pages.login_page import LoginPage
         
         url = "https://ebepirus.natech.gr/en/Account/UserLogin"
-        self.wd = conf.CONF.driver
+        self.wd = CONF.driver
         # Navigate to page
         self.wd.get(url)
         # Return page object
@@ -23,10 +23,10 @@ class Navigate():
         """
             url:https://ebepirus.natech.gr/en/Account/ForgotUsername
         """
-        from pages.forgot_username_page import ForgotUsername
+        from src.pages.forgot_username_page import ForgotUsername
         
         url = "https://ebepirus.natech.gr/en/Account/ForgotUsername"
-        self.wd = conf.CONF.driver
+        self.wd = CONF.driver
         # Navigate to page
         self.wd.get(url)
         # Return page object

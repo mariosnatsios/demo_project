@@ -1,3 +1,4 @@
+import unittest
 from src.fixtures import Fixtures
 from src.funcs_login import check_auto_logout_after_max_connection_time
 

@@ -1,5 +1,5 @@
 
 github_user_info = {
-    "api_token": "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",
+    "api_token": "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",
     "username": "mariosnatsios"
 } 

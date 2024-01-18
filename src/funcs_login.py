@@ -1,6 +1,5 @@
-from conf import CONF
-from time import sleep
-from data.login_data import valid_credentials
+from src.conf import CONF
+from src.data.login_data import valid_credentials
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
@@ -33,7 +32,7 @@ def perform_valid_login(upper_username=False):
         login(username=credentials["username"], password=credentials["password"])
     
     # Laod new page objecy and validate url after redirection and nav option in the homepage
-    from pages.home import HomePage
+    from src.pages.home import HomePage
     home_page = HomePage()
     # Validate navigation option
     home_page.validate_a_side_panel_nav_option("Home")
@@ -96,7 +95,7 @@ def check_cancel_logout():
     page.click_button_cancel_logout()
     # Validate no redirection to login page
     page.validate_a_side_panel_nav_option("Home")
-    from pages.login_page import LoginPage
+    from src.pages.login_page import LoginPage
     login_page = LoginPage()
     login_page.validate_p_login_btn(exists=False)
     current_url = CONF.driver.current_url
@@ -115,7 +114,7 @@ def check_auto_logout_after_max_connection_time(max_time=600):
     # Validate that the homepage is loaded first
     home_page.validate_a_side_panel_nav_option("Home")
     # Wait for 600ssecs and validate the login page redirection
-    from pages.login_page import LoginPage
+    from src.pages.login_page import LoginPage
     page = LoginPage()
     try:
         WebDriverWait(CONF.driver, max_time).until(EC.presence_of_all_elements_located((By.XPATH, page.path_form_login_form())))
@@ -152,7 +151,7 @@ def check_nvg_from_remind_username_to_login():
     page.click_a_return_to_login_page()
     # Validate page redirection
     page.validate_h5_remind_username(exists=False)
-    from pages.login_page import LoginPage
+    from src.pages.login_page import LoginPage
     login_page = LoginPage()
     login_page.validate_p_login_btn()
     current_url = CONF.driver.current_url

@@ -1,7 +1,7 @@
-import actions
+from src.actions import Actions
 
 
-class LoginPage(actions.Actions):   
+class LoginPage(Actions):   
     
     # ----------------------- HELPERS ------------------------
     def path_input_username_field(self):

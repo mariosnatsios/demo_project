@@ -1,6 +1,6 @@
-import actions
+from src.actions import Actions
 
-class HomePage(actions.Actions):
+class HomePage(Actions):
     
     # ----------------------- HELPERS -----------------------
  

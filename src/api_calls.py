@@ -1,5 +1,5 @@
 import requests, json
-from data.api_data import github_user_info
+from src.data.api_data import github_user_info
 
 
 def create_github_repo(repo_name):

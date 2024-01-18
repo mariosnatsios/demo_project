@@ -12,7 +12,7 @@ class ConfigurationHelper():
         self.driver = wd
 
     def set_browser(self):
-        service = Service(executable_path='chromedriver.exe')
+        service = Service()
         chrome_options = ChromeOptions()
         chrome_options.add_argument("--start-maximized")
 
