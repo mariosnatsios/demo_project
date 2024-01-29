@@ -28,7 +28,7 @@ class Actions():
               wait.until(EC.presence_of_all_elements_located((By.CLASS_NAME, target)))
               
               
-    def wait_until_element_is_clickable(self, target, path_type="xpath"):
+    def  wait_until_element_is_clickable(self, target, path_type="xpath"):
         """
             Wait for element to be displayed
         """
